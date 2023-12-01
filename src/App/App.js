@@ -12,7 +12,7 @@ function App() {
       <header>
         <h1>Rancid Tomatillos</h1>
       </header>
-      <Movies movieData={movieData.movies} />
+      <Movies movies={movieData.movies} />
     </main>
   )
 }

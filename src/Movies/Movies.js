@@ -1,8 +1,8 @@
 import './Movies.css';
 import Card from '../Card/Card';
 
-function Movies({movieData}) {
-  const movieCards = movieData.map(movie => {
+function Movies({movies}) {
+  const movieCards = movies.map(movie => {
     return(
       <Card
         id={movie.id}
