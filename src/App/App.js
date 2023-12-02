@@ -14,7 +14,7 @@ function App() {
     setSelectedMovie(movie);
   }
 
-  const clearSelection = () => {
+  const clearMovieSelection = () => {
     setSelectedMovie(null);
   }
 
@@ -24,7 +24,7 @@ function App() {
         <h1>Rancid Tomatillos</h1>
       </header>
       {selectedMovie ? (
-        <MovieDetail movie={selectedMovie} clearSelection={clearSelection} />
+        <MovieDetail movie={selectedMovie} clearMovieSelection={clearMovieSelection} />
       ) : (
         <Movies movies={movieData.movies} selectMovie={selectMovie} />
       )}
@@ -33,17 +33,3 @@ function App() {
 }
 
 export default App;
-
-
-// function App() {
-//   const [movies, setMovies] = useState([]);
-
-//   return (
-//     <main className='App'>
-//       <header>
-//         <h1>Rancid Tomatillos</h1>
-//       </header>
-//       <Movies movies={movieData.movies} />
-//     </main>
-//   )
-// }
