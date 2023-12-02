@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.error-message {
+  color: red;
+  margin: 20px;
+  font-size: 2em;
+}
