@@ -12,14 +12,14 @@ function App() {
     fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movie")
       .then((response) => {
         if (!response.ok) {
-          throw new Error(`Server responded with status ${response.status}`);
+          throw new Error(`Network response was not OK`);
         }
         return response.json();
       })
       .then((data) => setMovies(data.movies))
       .catch((error) => {
-        console.error(error.message);
-        setError(`Server error: ${error.message}`);
+        console.error('Error fetching movies:', error);
+        setError(`Oopsie! Something went wrong, please try again later.`);
       });
   };
 
