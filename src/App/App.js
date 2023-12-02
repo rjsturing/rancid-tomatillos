@@ -1,16 +1,28 @@
+import { useState, useEffect } from "react";
 import "./App.css";
 import Movies from "../Movies/Movies";
 import MovieDetail from "../MovieDetail/MovieDetail";
 import Card from "../Card/Card";
-import movieData from "../mock-data";
-import { useState, useEffect } from "react";
+// import movieData from "../mock-data";
 
 function App() {
+  const [movies, setMovies] = useState(null);
   const [selectedMovie, setSelectedMovie] = useState(null);
+
+  const getAllMovies = () => {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+      .then(response => response.json())
+      .then(data => setMovies(data.movies))
+      .catch(error => console.log(error.message))
+  }
+
+  useEffect(() => {
+    getAllMovies();
+  }, []);
 
   useEffect(() => {
     if (selectedMovie) {
-      document.body.style.background = `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${selectedMovie.backdrop_path}) no-repeat center center fixed`; 
+      document.body.style.background = `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${selectedMovie.backdrop_path}) no-repeat center center fixed`;
       document.body.style.backgroundSize = 'cover';
     } else {
       document.body.style.background = '';
@@ -36,7 +48,7 @@ function App() {
           clearMovieSelection={clearMovieSelection}
         />
       ) : (
-        <Movies movies={movieData.movies} selectMovie={selectMovie} />
+        <Movies movies={movies} selectMovie={selectMovie} />
       )}
     </main>
   );
