@@ -18,7 +18,7 @@ function App() {
       })
       .then((data) => setMovies(data.movies))
       .catch((error) => {
-        console.error('Error fetching movies:', error);
+        console.error(error);
         setError(`Oopsie! Something went wrong, please try again later.`);
       });
   };
@@ -49,8 +49,8 @@ function App() {
       <header>
         <h1>Rancid Tomatillos</h1>
       </header>
-      {error && <div className="error-message">Error: {error}</div>}
-       {selectedMovie ? (
+      {error && <div className="error-message">{error}</div>}
+      {selectedMovie ? (
         <MovieDetail
           movie={selectedMovie}
           clearMovieSelection={clearMovieSelection}
