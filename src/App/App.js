@@ -6,13 +6,22 @@ import MovieDetail from "../MovieDetail/MovieDetail";
 function App() {
   const [movies, setMovies] = useState(null);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [error, setError] = useState(null);
 
   const getAllMovies = () => {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-      .then(response => response.json())
-      .then(data => setMovies(data.movies))
-      .catch(error => console.log(error.message))
-  }
+    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movie")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Network response was not OK`);
+        }
+        return response.json();
+      })
+      .then((data) => setMovies(data.movies))
+      .catch((error) => {
+        console.error(error);
+        setError(`Oopsie! Something went wrong, please try again later.`);
+      });
+  };
 
   useEffect(() => {
     getAllMovies();
@@ -21,9 +30,9 @@ function App() {
   useEffect(() => {
     if (selectedMovie) {
       document.body.style.background = `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${selectedMovie.backdrop_path}) no-repeat center center fixed`;
-      document.body.style.backgroundSize = 'cover';
+      document.body.style.backgroundSize = "cover";
     } else {
-      document.body.style.background = '';
+      document.body.style.background = "";
     }
   }, [selectedMovie]);
 
@@ -40,6 +49,7 @@ function App() {
       <header>
         <h1>Rancid Tomatillos</h1>
       </header>
+      {error && <div className="error-message">{error}</div>}
       {selectedMovie ? (
         <MovieDetail
           movie={selectedMovie}
