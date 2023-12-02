@@ -3,12 +3,20 @@ import Movies from '../Movies/Movies';
 import MovieDetail from '../MovieDetail/MovieDetail';
 import Card from '../Card/Card';
 import movieData from '../mock-data';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
+  useEffect(() => {
+    if (selectedMovie) {
+      document.body.style.background = `rgba(0, 0, 0, 0.5) url(${selectedMovie.backdrop_path}) no-repeat center center fixed`; 
+      document.body.style.backgroundSize = 'cover';
+    } else {
+      document.body.style.background = '';
+    }
+  }, [selectedMovie])
 
   const selectMovie = (movie) => {
     setSelectedMovie(movie);
