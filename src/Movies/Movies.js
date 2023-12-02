@@ -2,6 +2,10 @@ import './Movies.css';
 import Card from '../Card/Card';
 
 function Movies({ movies, selectMovie }) {
+  if (!Array.isArray(movies) || movies.length === 0) {
+    return <div>Loading...</div>;
+  }
+
   const movieCards = movies.map(movie => {
     return (
       <Card
