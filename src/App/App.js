@@ -62,21 +62,4 @@ function App() {
   );
 }
 
-//   return (
-//     <main className="App">
-//       <header>
-//         <h1>Rancid Tomatillos</h1>
-//       </header>
-//       {selectedMovie ? (
-//         <MovieDetail
-//           movie={selectedMovie}
-//           clearMovieSelection={clearMovieSelection}
-//         />
-//       ) : (
-//         <Movies movies={movies} selectMovie={selectMovie} />
-//       )}
-//     </main>
-//   );
-// }
-
 export default App;
