@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Movies from "../Movies/Movies";
 import MovieDetail from "../MovieDetail/MovieDetail";
-import Card from "../Card/Card";
-// import movieData from "../mock-data";
 
 function App() {
   const [movies, setMovies] = useState(null);
