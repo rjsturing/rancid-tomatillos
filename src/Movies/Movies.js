@@ -1,9 +1,9 @@
 import './Movies.css';
 import Card from '../Card/Card';
 
-function Movies({movies}) {
+function Movies({ movies, selectMovie }) {
   const movieCards = movies.map(movie => {
-    return(
+    return (
       <Card
         id={movie.id}
         key={movie.id}
@@ -11,15 +11,16 @@ function Movies({movies}) {
         poster={movie.poster_path}
         rating={movie.average_rating}
         release={movie.release_date}
+        onClick={() => selectMovie(movie)}
       />
-    )
-  })
+    );
+  });
 
   return (
     <div className='movies-container'>
       {movieCards}
     </div>
-  )
+  );
 }
 
 export default Movies;
