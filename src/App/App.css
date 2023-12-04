@@ -7,6 +7,11 @@
   pointer-events: none;
 }
 
+.show-selected {
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) no-repeat center center fixed;
+  background-size: cover;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
