@@ -20,10 +20,11 @@ function App() {
 
   useEffect(() => {
     if (selectedMovie) {
-      document.body.style.background = `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${selectedMovie.backdrop_path}) no-repeat center center fixed`;
-      document.body.style.backgroundSize = "cover";
+      const mainElement = document.querySelector('.show-selected');
+      mainElement.style.backgroundImage = `url(${selectedMovie.backdrop_path})`;
     } else {
-      document.body.style.background = "";
+      const mainElement = document.querySelector('.App');
+      mainElement.style.backgroundImage = 'none';
     }
   }, [selectedMovie]);
 
