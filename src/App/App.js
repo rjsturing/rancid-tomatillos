@@ -45,7 +45,7 @@ function App() {
   };
 
   return (
-    <main className={"App"}>
+    <main className="App">
       <header>
         <h1>Rancid Tomatillos</h1>
       </header>
