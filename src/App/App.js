@@ -2,29 +2,20 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Movies from "../Movies/Movies";
 import MovieDetail from "../MovieDetail/MovieDetail";
+import { getAllMovies } from "../apiCalls";
 
 function App() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [error, setError] = useState(null);
 
-  const getAllMovies = () => {
-    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Network response was not OK`);
-        }
-        return response.json();
-      })
+  useEffect(() => {
+    getAllMovies()
       .then((data) => setMovies(data.movies))
       .catch((error) => {
         console.error(error);
         setError(`Oopsie! Something went wrong, please try again later.`);
       });
-  };
-
-  useEffect(() => {
-    getAllMovies();
   }, []);
 
   useEffect(() => {
