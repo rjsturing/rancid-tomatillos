@@ -1,5 +1,11 @@
 describe("Rotten Tomatillos", () => {
-  it("Should be able to visit page and view all movies", () => {
-    cy.visit("http://localhost:3000");
+
+  it('Should successfully load application when application is opened', () => {
+    cy.visit('/')
   });
+
+  it("Should be able to view home page and movies for selection", () => {
+    cy.visit('/')
+  });
+
 });
