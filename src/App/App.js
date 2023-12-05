@@ -30,9 +30,10 @@ function App() {
   useEffect(() => {
     if (selectedMovie) {
       const mainElement = document.querySelector('.show-selected');
-      if (mainElement) {
-        mainElement.style.backgroundImage = `url(${selectedMovie.backdrop_path})`;
-      }
+      mainElement.style.backgroundImage = `url(${selectedMovie.backdrop_path})`;
+    } else {
+      const mainElement = document.querySelector('.App');
+      mainElement.style.backgroundImage = 'none';
     }
   }, [selectedMovie]);
 
@@ -41,7 +42,7 @@ function App() {
   };
 
   const clearMovieSelection = () => {
-    setSelectedMovie([]);
+    setSelectedMovie(null);
   };
 
   const mainClass = selectedMovie ? 'App show-selected' : 'App';
