@@ -4,7 +4,7 @@ import Movies from "../Movies/Movies";
 import MovieDetail from "../MovieDetail/MovieDetail";
 
 function App() {
-  const [movies, setMovies] = useState(null);
+  const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [error, setError] = useState(null);
 
