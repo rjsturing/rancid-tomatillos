@@ -45,10 +45,8 @@ function App() {
     setSelectedMovie(null);
   };
 
-  const mainClass = selectedMovie ? 'App show-selected' : 'App';
-
   return (
-    <main className={mainClass}>
+    <main className="App">
       <header>
         <h1>Rancid Tomatillos</h1>
       </header>
