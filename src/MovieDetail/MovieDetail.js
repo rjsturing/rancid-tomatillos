@@ -26,9 +26,14 @@ function MovieDetail() {
     ? { backgroundImage: `url(${selectedMovie.backdrop_path})` }
     : {};
 
+  if (error) {
+    return <div className='error-message'>{error}</div>;
+  }
+
   if (!selectedMovie) {
     return <div>Loading movie details...</div>;
   }
+
   return (
     <div className={"movie-detail show-selected"} style={mainStyle}>
       <img className="poster" src={selectedMovie.poster_path} alt={`${selectedMovie.title} poster`} />
