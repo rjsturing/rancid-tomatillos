@@ -18,15 +18,9 @@ function App() {
       });
   }, []);
 
-  useEffect(() => {
-    if (selectedMovie) {
-      const mainElement = document.querySelector('.show-selected');
-      mainElement.style.backgroundImage = `url(${selectedMovie.backdrop_path})`;
-    } else {
-      const mainElement = document.querySelector('.App');
-      mainElement.style.backgroundImage = 'none';
-    }
-  }, [selectedMovie]);
+ const mainStyle = selectedMovie 
+    ? { backgroundImage: `url(${selectedMovie.backdrop_path})` }
+    : {};
 
   const selectMovie = (movie) => {
     setSelectedMovie(movie);
@@ -37,7 +31,7 @@ function App() {
   };
 
   return (
-    <main className="App">
+    <main className={`App ${selectedMovie ? "show-selected" : ""}`} style={mainStyle}>
       <header>
         <h1>Rancid Tomatillos</h1>
       </header>
