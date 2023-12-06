@@ -2,6 +2,10 @@ import React from 'react';
 import './MovieDetail.css';
 
 function MovieDetail({ movie, clearMovieSelection }) {
+  console.log("Movie", movie)
+  if(!movie) {
+    return <div>Loading movie details...</div>;
+  }
   return (
     <div className="movie-detail">
       <img className="poster" src={movie.poster_path} alt={`${movie.title} poster`} />
