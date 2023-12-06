@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Movies from "../Movies/Movies";
 import MovieDetail from "../MovieDetail/MovieDetail";
-import { getAllMovies } from "../apiCalls";
+import { getAllMovies, getSelectedMovie } from "../apiCalls";
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -23,8 +23,16 @@ function App() {
     ? { backgroundImage: `url(${selectedMovie.backdrop_path})` }
     : {};
 
-  const selectMovie = (movie) => {
-    setSelectedMovie(movie);
+  const selectMovie = (id) => {
+    getSelectedMovie(id)
+      .then(data => {
+        console.log(data)
+        setSelectedMovie(data.movie);
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(`Oopsie! Something went wrong, please try again later.`);
+      })
   };
 
   const clearMovieSelection = () => {

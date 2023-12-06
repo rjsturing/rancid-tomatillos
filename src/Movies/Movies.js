@@ -15,7 +15,7 @@ function Movies({ movies, selectMovie }) {
         poster={movie.poster_path}
         rating={movie.average_rating}
         release={movie.release_date}
-        onClick={() => selectMovie(movie)}
+        onClick={() => selectMovie(movie.id)}
       />
     );
   });
