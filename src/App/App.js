@@ -19,7 +19,7 @@ function App() {
   }, []);
 
  const mainStyle = selectedMovie 
-    ? { backgroundImage: `url(${selectedMovie.backdrop_path})`, overflow: "auto" }
+    ? { backgroundImage: `url(${selectedMovie.backdrop_path})` }
     : {};
 
   const selectMovie = (movie) => {
@@ -31,7 +31,7 @@ function App() {
   };
 
   return (
-    <main className="App" style={mainStyle}>
+    <main className={`App ${selectedMovie ? "show-selected" : ""}`} style={mainStyle}>
       <header>
         <h1>Rancid Tomatillos</h1>
       </header>
