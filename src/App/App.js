@@ -3,6 +3,7 @@ import "./App.css";
 import Movies from "../Movies/Movies";
 import MovieDetail from "../MovieDetail/MovieDetail";
 import { getAllMovies } from "../apiCalls";
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -18,7 +19,7 @@ function App() {
       });
   }, []);
 
- const mainStyle = selectedMovie 
+  const mainStyle = selectedMovie
     ? { backgroundImage: `url(${selectedMovie.backdrop_path})` }
     : {};
 
@@ -35,15 +36,23 @@ function App() {
       <header>
         <h1>Rancid Tomatillos</h1>
       </header>
-      {error && <div className="error-message">{error}</div>}
-      {selectedMovie ? (
-        <MovieDetail
-          movie={selectedMovie}
-          clearMovieSelection={clearMovieSelection}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            error ? (
+              <div className="error-message">{error}</div>
+            ) : selectedMovie ? (
+              <MovieDetail
+                movie={selectedMovie}
+                clearMovieSelection={clearMovieSelection}
+              />
+            ) : (
+              <Movies movies={movies} selectMovie={selectMovie} />
+            )
+          }
         />
-      ) : (
-        <Movies movies={movies} selectMovie={selectMovie} />
-      )}
+      </Routes>
     </main>
   );
 }
