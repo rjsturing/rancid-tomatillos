@@ -36,7 +36,7 @@ function MovieDetail() {
       <p>Release Date: {selectedMovie.release_date}</p>
       <p>Average Rating: {Math.round(selectedMovie.average_rating * 10)}%</p>
       <Link to={'/'}>
-       <button className="back-button">Back to Movies</button>
+        <button className="back-button">Back to Movies</button>
       </Link>
     </div>
   );
