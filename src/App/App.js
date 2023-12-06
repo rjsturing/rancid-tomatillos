@@ -2,42 +2,15 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Movies from "../Movies/Movies";
 import MovieDetail from "../MovieDetail/MovieDetail";
-import { getAllMovies, getSelectedMovie } from "../apiCalls";
-import { Routes, Route, useParams, useNavigate } from 'react-router-dom';
+import { Routes, Route, useParams } from 'react-router-dom';
 
 function App() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    getAllMovies()
-      .then((data) => setMovies(data.movies))
-      .catch((error) => {
-        console.error(error);
-        setError(`Oopsie! Something went wrong, please try again later.`);
-      });
-  }, []);
-
-  const { id } = useParams();
-
-  useEffect(() => {
-    if (id) {
-      getSelectedMovie(id)
-        .then(data => {
-          console.log("Movie Detail Data:", data);
-          setSelectedMovie(data.movie);
-        })
-        .catch((error) => {
-          console.error(error);
-          setError(`Oopsie! Something went wrong, please try again later.`);
-        });
-    }
-  }, [id]);
-
-  const selectMovie = (movieId) => {
-    navigate(`/movies/${movieId}`);
+  const selectMovie = (movie) => {
+    setSelectedMovie(movie);
   };
 
   const clearMovieSelection = () => {

@@ -7,7 +7,7 @@
   pointer-events: none;
 }
 
-.show-selected {
+/* .show-selected {
   overflow: auto;
   background-repeat: no-repeat;
   background-size: cover;
@@ -30,7 +30,7 @@
 .show-selected > * {
   position: relative;
   z-index: 2; 
-}
+} */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
