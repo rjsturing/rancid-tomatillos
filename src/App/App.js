@@ -19,7 +19,7 @@ function App() {
   }, []);
 
  const mainStyle = selectedMovie 
-    ? { backgroundImage: `url(${selectedMovie.backdrop_path})` }
+    ? { backgroundImage: `url(${selectedMovie.backdrop_path})`, overflow: "auto" }
     : {};
 
   const selectMovie = (movie) => {
