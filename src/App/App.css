@@ -2,7 +2,21 @@
   text-align: center;
 }
 
-.App-logo {
+body {
+  background-color: #45425A;
+}
+
+.error-message {
+  color: red;
+  margin: 20px;
+  font-size: 2em;
+}
+
+
+
+
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -36,10 +50,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.error-message {
-  color: red;
-  margin: 20px;
-  font-size: 2em;
-}
+} */
