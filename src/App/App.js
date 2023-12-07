@@ -1,9 +1,10 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import "./App.css";
 import Movies from "../Movies/Movies";
 import MovieDetail from "../MovieDetail/MovieDetail";
-import { Routes, Route } from 'react-router-dom';
-import { getAllMovies } from '../apiCalls';
+import { Routes, Route } from "react-router-dom";
+import { getAllMovies } from "../apiCalls";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -22,25 +23,45 @@ function App() {
     ? { backgroundImage: `url(${selectedMovie.backdrop_path})` }
     : {};
 
-    useEffect(() => {
-      getAllMovies()
-        .then((data) => setMovies(data.movies))
-        .catch((error) => {
-          console.error(error);
-          setError(`Oopsie! Something went wrong, please try again later.`);
-        });
-    }, []);
+  useEffect(() => {
+    getAllMovies()
+      .then((data) => setMovies(data.movies))
+      .catch((error) => {
+        console.error(error);
+        setError(`Oopsie! Something went wrong, please try again later.`);
+      });
+  }, []);
 
   return (
-    <main className={`App ${selectedMovie ? "show-selected" : ""}`} style={mainStyle}>
+    <main
+      className={`App ${selectedMovie ? "show-selected" : ""}`}
+      style={mainStyle}
+    >
       <header>
-        <h1>Rancid Tomatillos</h1>
+        <div className="logo">
+          <img src="/tomatillo-icon.png" alt="Tomatillo Logo" />
+        </div>
+        <div className="header-title">
+          <h1>Rancid Tomatillos</h1>
+        </div>
       </header>
-      {error && (<div className="error-message">{error}</div>)}
-      <Routes>
-        <Route path="/" element={<Movies movies={movies} selectMovie={selectMovie} />} />
 
-        <Route path="/movies/:id" element={<MovieDetail movie={selectedMovie} clearMovieSelection={clearMovieSelection} />} />
+      {error && <div className="error-message">{error}</div>}
+      <Routes>
+        <Route
+          path="/"
+          element={<Movies movies={movies} selectMovie={selectMovie} />}
+        />
+
+        <Route
+          path="/movies/:id"
+          element={
+            <MovieDetail
+              movie={selectedMovie}
+              clearMovieSelection={clearMovieSelection}
+            />
+          }
+        />
       </Routes>
     </main>
   );

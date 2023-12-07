@@ -1,14 +1,22 @@
 .card {
   box-sizing: border-box;
-  border: 3px solid black;
+  border: none; /* Remove the border */
   min-height: 725px;
   overflow: auto;
+  box-shadow: none; /* Remove the box shadow */
 }
 
 .card:hover {
-background-color: lightgray;
+  background-color: lightgray;
+  color: black;
+}
+
+.card:hover h2 {
+  color: black;
+  
 }
 
 .movie-poster {
   max-width: 100%;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3); /* Adjust the shadow color and opacity as needed */
 }

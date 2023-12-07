@@ -3,9 +3,14 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
+
 }
 
 .movie-card-link {
   color: inherit;
   text-decoration: inherit;
+}
+
+h2 {
+  color: white;
 }

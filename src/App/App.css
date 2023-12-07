@@ -2,8 +2,35 @@
   text-align: center;
 }
 
+header {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to bottom, black, #534b7e);
+  padding: 25px;
+}
+
+.header-title {
+  color: white;
+}
+
 body {
-  background-color: #45425A;
+  background-color: #534b7e;
+}
+
+.logo {
+  margin-right: 20px;
+}
+
+.logo img {
+  max-width: 75px;
+  margin-right: 10px;
+  margin-left: 35px;
+  margin-top: 5px;
+}
+
+h1 {
+  margin: 50;
+  color: white;
 }
 
 .error-message {
