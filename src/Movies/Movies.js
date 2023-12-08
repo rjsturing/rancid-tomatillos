@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import './Movies.css';
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
@@ -41,6 +43,10 @@ function Movies() {
       {movieCards}
     </div>
   );
+}
+
+Movies.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default Movies;
