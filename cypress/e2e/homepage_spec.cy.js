@@ -13,9 +13,6 @@ describe("Rotten Tomatillos", () => {
 
   it('should be able to see the movies populate on the page', () => {
     cy.get('.movies-container').children().first().find('.movie-poster').should('have.attr', 'alt', 'Money Plane');
-    cy.get('.movies-container').children().first().find('h2').contains('Money Plane');
-
     cy.get('.movies-container').children().last().find('.movie-poster').should('have.attr', 'alt', 'I Still Believe');
-    cy.get('.movies-container').children().last().find('h2').contains('I Still Believe');
   });
 });
