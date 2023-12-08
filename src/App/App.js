@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./App.css";
+import NotFound from '../NotFound/NotFound';
 import Movies from "../Movies/Movies";
 import MovieDetail from "../MovieDetail/MovieDetail";
 import { Routes, Route } from "react-router-dom";
@@ -23,14 +24,14 @@ function App() {
     ? { backgroundImage: `url(${selectedMovie.backdrop_path})` }
     : {};
 
-  useEffect(() => {
-    getAllMovies()
-      .then((data) => setMovies(data.movies))
-      .catch((error) => {
-        console.error(error);
-        setError(error.message);
-      });
-  }, []);
+    useEffect(() => {
+      getAllMovies()
+        .then((data) => setMovies(data.movies))
+        .catch((error) => {
+          console.error(error);
+          setError(error.message);
+        });
+    }, []);
 
   return (
     <main className={`App ${selectedMovie ? "show-selected" : ""}`}>

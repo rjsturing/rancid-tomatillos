@@ -17,7 +17,7 @@ function MovieDetail() {
         })
         .catch((error) => {
           console.error(error);
-          setError(`Oopsie! Something went wrong, please try again later.`);
+          setError(error.message);
         });
     }
   }, [id]);
