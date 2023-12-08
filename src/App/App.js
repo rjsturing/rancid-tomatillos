@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import NotFound from '../NotFound/NotFound';
 import Movies from "../Movies/Movies";
 import MovieDetail from "../MovieDetail/MovieDetail";
 import { Routes, Route } from 'react-router-dom';
@@ -27,7 +28,7 @@ function App() {
         .then((data) => setMovies(data.movies))
         .catch((error) => {
           console.error(error);
-          setError(`Oopsie! Something went wrong, please try again later.`);
+          setError(error.message);
         });
     }, []);
 
@@ -39,8 +40,8 @@ function App() {
       {error && (<div className="error-message">{error}</div>)}
       <Routes>
         <Route path="/" element={<Movies movies={movies} selectMovie={selectMovie} />} />
-
         <Route path="/movies/:id" element={<MovieDetail movie={selectedMovie} clearMovieSelection={clearMovieSelection} />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </main>
   );
