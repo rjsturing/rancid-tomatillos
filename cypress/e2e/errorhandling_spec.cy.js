@@ -15,6 +15,15 @@ describe("Error handling", () => {
       fixture: '/mock-data.json'
     });
     cy.visit('/');
-    cy.get('.error-message').contains('Oopsie! This is not the page you were looking for.');
+    cy.get('.error-message').contains('Oopsie! Nothing to see here!');
+  });
+
+  it('should show an appropriate error if the page doesn\'t exist', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      statusCode: 200,
+      fixture: '/mock-data.json'
+    });
+    cy.visit('/fakepath');
+    cy.get('.error-message').contains('Oopsie! This page doesn\'t actually exist.');
   });
 });

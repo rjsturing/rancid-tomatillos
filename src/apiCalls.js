@@ -3,7 +3,7 @@ const getAllMovies = () => {
     .then((response) => {
       if (!response.ok) {
         if (response.status >= 400 && response.status < 500) {
-          throw new Error("Oopsie! This is not the page you were looking for.");
+          throw new Error("Oopsie! Nothing to see here!");
         } else if (response.status >= 500) {
           throw new Error("Oopsie! Something went wrong, please try again later.");
         } else {
@@ -19,7 +19,7 @@ const getSelectedMovie = (id) => {
     .then((response) => {
       if (!response.ok) {
         if (response.status >= 400 && response.status < 500) {
-          throw new Error("Oopsie! This is not the page you were looking for.");
+          throw new Error("Oopsie! Nothing to see here!");
         } else if (response.status >= 500) {
           throw new Error("Oopsie! Something went wrong, please try again later.");
         } else {
