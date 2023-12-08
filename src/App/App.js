@@ -27,7 +27,7 @@ function App() {
         .then((data) => setMovies(data.movies))
         .catch((error) => {
           console.error(error);
-          setError(`Oopsie! Something went wrong, please try again later.`);
+          setError(error.message);
         });
     }, []);
 
@@ -39,7 +39,6 @@ function App() {
       {error && (<div className="error-message">{error}</div>)}
       <Routes>
         <Route path="/" element={<Movies movies={movies} selectMovie={selectMovie} />} />
-
         <Route path="/movies/:id" element={<MovieDetail movie={selectedMovie} clearMovieSelection={clearMovieSelection} />} />
       </Routes>
     </main>

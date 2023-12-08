@@ -2,17 +2,29 @@ const getAllMovies = () => {
   return fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
     .then((response) => {
       if (!response.ok) {
-        throw new Error(`Network response was not OK`);
+        if (response.status >= 400 && response.status < 500) {
+          throw new Error("Oopsie! This is not the page you were looking for.");
+        } else if (response.status >= 500) {
+          throw new Error("Oopsie! Something went wrong, please try again later.");
+        } else {
+          throw new Error(`Unexpected error. Status: ${response.status}`);
+        }
       }
       return response.json();
     })
-};
+}
 
 const getSelectedMovie = (id) => {
   return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
     .then((response) => {
       if (!response.ok) {
-        throw new Error(`Network response was not OK`);
+        if (response.status >= 400 && response.status < 500) {
+          throw new Error("Oopsie! This is not the page you were looking for.");
+        } else if (response.status >= 500) {
+          throw new Error("Oopsie! Something went wrong, please try again later.");
+        } else {
+          throw new Error(`Unexpected error. Status: ${response.status}`);
+        }
       }
       return response.json();
     })
