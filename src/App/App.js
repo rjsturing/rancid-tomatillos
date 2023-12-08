@@ -23,14 +23,14 @@ function App() {
     ? { backgroundImage: `url(${selectedMovie.backdrop_path})` }
     : {};
 
-    useEffect(() => {
-      getAllMovies()
-        .then((data) => setMovies(data.movies))
-        .catch((error) => {
-          console.error(error);
-          setError(error.message);
-        });
-    }, []);
+  useEffect(() => {
+    getAllMovies()
+      .then((data) => setMovies(data.movies))
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
+  }, []);
 
   return (
     <main className={`App ${selectedMovie ? "show-selected" : ""}`}>
@@ -50,7 +50,6 @@ function App() {
             path="/"
             element={<Movies movies={movies} selectMovie={selectMovie} />}
           />
-
           <Route
             path="/movies/:id"
             element={
