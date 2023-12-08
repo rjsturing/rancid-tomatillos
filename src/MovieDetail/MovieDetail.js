@@ -1,8 +1,8 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { getSelectedMovie } from '../apiCalls';
-import './MovieDetail.css';
+import React from "react";
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import { getSelectedMovie } from "../apiCalls";
+import "./MovieDetail.css";
 
 function MovieDetail() {
   const { id } = useParams();
@@ -12,7 +12,7 @@ function MovieDetail() {
   useEffect(() => {
     if (id) {
       getSelectedMovie(id)
-        .then(data => {
+        .then((data) => {
           setSelectedMovie(data.movie);
         })
         .catch((error) => {
@@ -27,7 +27,7 @@ function MovieDetail() {
     : {};
 
   if (error) {
-    return <div className='error-message'>{error}</div>;
+    return <div className="error-message">{error}</div>;
   }
 
   if (!selectedMovie) {
@@ -35,14 +35,22 @@ function MovieDetail() {
   }
 
   return (
-    <div className={"movie-detail show-selected"} style={mainStyle}>
-      <img className="poster" src={selectedMovie.poster_path} alt={`${selectedMovie.title} poster`} />
-      <h2>{selectedMovie.title}</h2>
-      <p>Release Date: {selectedMovie.release_date}</p>
-      <p>Average Rating: {Math.round(selectedMovie.average_rating * 10)}%</p>
-      <Link to={'/'}>
+    <div className="movie-detail show-selected" style={mainStyle}>
+      <Link to={"/"}>
         <button className="back-button">Back to Movies</button>
       </Link>
+      <div className="left-side">
+        <img
+          className="poster"
+          src={selectedMovie.poster_path}
+          alt={`${selectedMovie.title} poster`}
+        />
+      </div>
+      <div className="right-side">
+        <h2>{selectedMovie.title}</h2>
+        <p>Release Date: {selectedMovie.release_date}</p>
+        <p>Average Rating: {Math.round(selectedMovie.average_rating * 10)}%</p>
+      </div>
     </div>
   );
 }

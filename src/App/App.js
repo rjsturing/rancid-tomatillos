@@ -33,10 +33,7 @@ function App() {
   }, []);
 
   return (
-    <main
-      className={`App ${selectedMovie ? "show-selected" : ""}`}
-      style={mainStyle}
-    >
+    <main className={`App ${selectedMovie ? "show-selected" : ""}`}>
       <header>
         <div className="logo">
           <img src="/tomatillo-icon.png" alt="Tomatillo Logo" />
@@ -46,23 +43,25 @@ function App() {
         </div>
       </header>
 
-      {error && <div className="error-message">{error}</div>}
-      <Routes>
-        <Route
-          path="/"
-          element={<Movies movies={movies} selectMovie={selectMovie} />}
-        />
+      <div className="content-area" style={mainStyle}>
+        {error && <div className="error-message">{error}</div>}
+        <Routes>
+          <Route
+            path="/"
+            element={<Movies movies={movies} selectMovie={selectMovie} />}
+          />
 
-        <Route
-          path="/movies/:id"
-          element={
-            <MovieDetail
-              movie={selectedMovie}
-              clearMovieSelection={clearMovieSelection}
-            />
-          }
-        />
-      </Routes>
+          <Route
+            path="/movies/:id"
+            element={
+              <MovieDetail
+                movie={selectedMovie}
+                clearMovieSelection={clearMovieSelection}
+              />
+            }
+          />
+        </Routes>
+      </div>
     </main>
   );
 }
