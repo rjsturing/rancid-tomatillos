@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import './Card.css';
 
 function Card({ title, poster, id, onClick }) {
@@ -8,5 +10,13 @@ function Card({ title, poster, id, onClick }) {
     </div>
   );
 }
+
+Card.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  poster: PropTypes.string,
+  rating: PropTypes.number,
+  release: PropTypes.string
+};
 
 export default Card;
