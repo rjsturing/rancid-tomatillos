@@ -34,6 +34,8 @@ function MovieDetail() {
     return <div>Loading movie details...</div>;
   }
 
+  const movieYear = selectedMovie.release_date ? `(${new Date(selectedMovie.release_date).getFullYear()})` : '';
+
   return (
     <div className="movie-detail show-selected" style={mainStyle}>
       <Link to={"/"}>
@@ -47,9 +49,9 @@ function MovieDetail() {
         />
       </div>
       <div className="right-side">
-        <h2>{selectedMovie.title}</h2>
-        <p>Release Date: {selectedMovie.release_date}</p>
+        <h2>{`${selectedMovie.title} ${movieYear}`}</h2>
         <p>Average Rating: {Math.round(selectedMovie.average_rating * 10)}%</p>
+        <p>Release Date: {selectedMovie.release_date}</p>
       </div>
     </div>
   );

@@ -1,19 +1,28 @@
 .card {
   box-sizing: border-box;
-  width: 100%;
-  min-height: 725px;
-  overflow: auto;
-}
-
-.card:hover {
-  transform: scale(1.05);
+  border: none;
+  overflow: visible; /* Allow the poster to overlap other elements when enlarged */
+  box-shadow: none;
+  cursor: pointer;
   transition: transform 0.3s ease;
-  z-index: 1;
+  position: relative; /* Needed to control the z-index */
 }
 
 .movie-poster {
   width: 100%;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
+}
 
+.card:hover .movie-poster {
+  transform: scale(1.03);
+  z-index: 10; 
+  animation: wiggleEnlarge 0.5s ease-in-out forwards;
+}
+
+@keyframes wiggleEnlarge {
+  0%, 100% { transform: scale(1.03) rotate(0deg); }
+  25% { transform: scale(1.03) rotate(-2deg); }
+  50% { transform: scale(1.03) rotate(2deg); } 
+  75% { transform: scale(1.03) rotate(-2deg); }
 }
