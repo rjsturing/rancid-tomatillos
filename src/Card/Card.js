@@ -12,11 +12,11 @@ function Card({ title, poster, id, onClick }) {
 }
 
 Card.propTypes = {
-  id: PropTypes.number,
-  title: PropTypes.string,
-  poster: PropTypes.string,
-  rating: PropTypes.number,
-  release: PropTypes.string
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  poster: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  release: PropTypes.string.isRequired
 };
 
 export default Card;
