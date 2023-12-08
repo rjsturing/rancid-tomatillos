@@ -5,12 +5,15 @@
 header {
   display: flex;
   align-items: center;
+  justify-content: center;
   background: linear-gradient(to bottom, black, #534b7e);
   padding: 25px;
+  position: relative;
 }
 
 .header-title {
   color: white;
+  margin-top: 20px;
 }
 
 body {

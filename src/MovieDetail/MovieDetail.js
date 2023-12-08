@@ -38,9 +38,9 @@ function MovieDetail() {
 
   return (
     <div className="movie-detail show-selected" style={mainStyle}>
-      <Link to={"/"}>
-        <button className="back-button">Back to Movies</button>
-      </Link>
+   <Link to={"/"}>
+    <button className="back-button">Back to Movies</button>
+  </Link>
       <div className="left-side">
         <img
           className="poster"
