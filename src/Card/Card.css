@@ -1,13 +1,28 @@
 .card {
   box-sizing: border-box;
-  border: 3px solid black;
-  padding: 10px;
-}
-
-.card:hover {
-background-color: lightgray;
+  border: none;
+  overflow: visible;
+  box-shadow: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  position: relative;
 }
 
 .movie-poster {
-  max-width: 100%;
+  width: 100%;
+  box-shadow: 5px 10px 20px rgba(0,0,0,.75);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .movie-poster {
+  transform: scale(1.03);
+  z-index: 10; 
+  animation: wiggleEnlarge 0.5s ease-in-out forwards;
+}
+
+@keyframes wiggleEnlarge {
+  0%, 100% { transform: scale(1.03) rotate(0deg); }
+  25% { transform: scale(1.03) rotate(-2deg); }
+  50% { transform: scale(1.03) rotate(2deg); } 
+  75% { transform: scale(1.03) rotate(-2deg); }
 }
