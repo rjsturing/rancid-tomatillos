@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./App.css";
-import NotFound from '../NotFound/NotFound';
+import NotFound from "../NotFound/NotFound";
 import Movies from "../Movies/Movies";
 import MovieDetail from "../MovieDetail/MovieDetail";
 import { Routes, Route } from "react-router-dom";
@@ -24,23 +24,14 @@ function App() {
     ? { backgroundImage: `url(${selectedMovie.backdrop_path})` }
     : {};
 
-    useEffect(() => {
-      getAllMovies()
-        .then((data) => setMovies(data.movies))
-        .catch((error) => {
-          console.error(error);
-          setError(`Oopsie! Something went wrong, please try again later.`);
-        });
-    }, []);
-
-    useEffect(() => {
-      if (selectedMovie) {
-        document.body.style.overflow = 'hidden'; // Disable scrolling
-      } else {
-        document.body.style.overflow = 'unset'; // Enable scrolling
-      }
-    }, [selectedMovie]);
-    
+  useEffect(() => {
+    getAllMovies()
+      .then((data) => setMovies(data.movies))
+      .catch((error) => {
+        console.error(error);
+        setError(`Oopsie! Something went wrong, please try again later.`);
+      });
+  }, []);
 
   return (
     <main className={`App ${selectedMovie ? "show-selected" : ""}`}>
@@ -52,11 +43,22 @@ function App() {
           <h1>Rancid Tomatillos</h1>
         </div>
       </header>
-      {error && (<div className="error-message">{error}</div>)}
+      {error && <div className="error-message">{error}</div>}
       <Routes>
-        <Route path="/" element={<Movies movies={movies} selectMovie={selectMovie} />} />
+        <Route
+          path="/"
+          element={<Movies movies={movies} selectMovie={selectMovie} />}
+        />
 
-        <Route path="/movies/:id" element={<MovieDetail movie={selectedMovie} clearMovieSelection={clearMovieSelection} />} />
+        <Route
+          path="/movies/:id"
+          element={
+            <MovieDetail
+              movie={selectedMovie}
+              clearMovieSelection={clearMovieSelection}
+            />
+          }
+        />
       </Routes>
     </main>
   );

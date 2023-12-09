@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getSelectedMovie } from "../apiCalls";
 import "./MovieDetail.css";
@@ -9,6 +8,7 @@ function MovieDetail() {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [error, setError] = useState(null);
 
+  // Fetch movie details based on the movie ID from the URL
   useEffect(() => {
     if (id) {
       getSelectedMovie(id)
@@ -22,6 +22,17 @@ function MovieDetail() {
     }
   }, [id]);
 
+  // prevent detail page from scrolling overflow
+  useEffect(() => {
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalStyle;
+    };
+  }, []);
+  //
+
   const mainStyle = selectedMovie
     ? { backgroundImage: `url(${selectedMovie.backdrop_path})` }
     : {};
@@ -34,13 +45,15 @@ function MovieDetail() {
     return <div>Loading movie details...</div>;
   }
 
-  const movieYear = selectedMovie.release_date ? `(${new Date(selectedMovie.release_date).getFullYear()})` : '';
+  const movieYear = selectedMovie.release_date
+    ? `(${new Date(selectedMovie.release_date).getFullYear()})`
+    : "";
 
   return (
     <div className="movie-detail show-selected" style={mainStyle}>
-   <Link to={"/"}>
-    <button className="back-button">Back to Movies</button>
-  </Link>
+      <Link to={"/"}>
+        <button className="back-button">Back to Movies</button>
+      </Link>
       <div className="left-side">
         <img
           className="poster"
@@ -50,10 +63,14 @@ function MovieDetail() {
       </div>
       <div className="right-side">
         <h3>{`${selectedMovie.title} ${movieYear}`}</h3>
-          <h2>"{`${selectedMovie.tagline}`}"</h2>
+        <h2>"{`${selectedMovie.tagline}`}"</h2>
+        <h1>{selectedMovie.genres.join(', ')}</h1>
         <p>Average Rating: {Math.round(selectedMovie.average_rating * 10)}%</p>
-        <p>Release Date: {selectedMovie.release_date}</p>
-        <h1><i>Synopsis:</i>{selectedMovie.overview}</h1>
+        <p>Runtime: {selectedMovie.runtime} minutes</p>
+        <h1>
+          <i>Synopsis: </i>
+          {selectedMovie.overview}
+        </h1>
       </div>
     </div>
   );
