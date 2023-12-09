@@ -1,8 +1,7 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { getSelectedMovie } from '../apiCalls';
-import './MovieDetail.css';
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import { getSelectedMovie } from "../apiCalls";
+import "./MovieDetail.css";
 
 function MovieDetail() {
   const { id } = useParams();
@@ -12,7 +11,7 @@ function MovieDetail() {
   useEffect(() => {
     if (id) {
       getSelectedMovie(id)
-        .then(data => {
+        .then((data) => {
           setSelectedMovie(data.movie);
         })
         .catch((error) => {
@@ -22,27 +21,68 @@ function MovieDetail() {
     }
   }, [id]);
 
+  // prevent detail page from scrolling overflow
+  useEffect(() => {
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalStyle;
+    };
+  }, []);
+  //
+
   const mainStyle = selectedMovie
     ? { backgroundImage: `url(${selectedMovie.backdrop_path})` }
     : {};
 
   if (error) {
-    return <div className='error-message'>{error}</div>;
+    return <div className="error-message">{error}</div>;
   }
 
   if (!selectedMovie) {
     return <div>Loading movie details...</div>;
   }
 
+  const movieYear = selectedMovie.release_date
+    ? `(${new Date(selectedMovie.release_date).getFullYear()})`
+    : "";
+
   return (
-    <div className={"movie-detail show-selected"} style={mainStyle}>
-      <img className="poster" src={selectedMovie.poster_path} alt={`${selectedMovie.title} poster`} />
-      <h2>{selectedMovie.title}</h2>
-      <p>Release Date: {selectedMovie.release_date}</p>
-      <p>Average Rating: {Math.round(selectedMovie.average_rating * 10)}%</p>
-      <Link to={'/'}>
-        <button className="back-button">Back to Movies</button>
+    <div className="movie-detail show-selected" style={mainStyle}>
+      <Link to={"/"}>
+        <button className="back-button">
+          <span className="custom-font">←ㅤBack</span>
+        </button>
       </Link>
+      <div className="left-side">
+        <img
+          className="poster"
+          src={selectedMovie.poster_path}
+          alt={`${selectedMovie.title} poster`}
+        />
+      </div>
+      <div className="right-side">
+        <h3>{`${selectedMovie.title} ${movieYear}`}</h3>
+        <h2>{`${selectedMovie.tagline}`}</h2>
+        <p>
+          {selectedMovie.genres.join(", ")} • {selectedMovie.runtime} mins
+        </p>
+        <p>
+          <img
+            className="tomatillo-icon"
+            src="/tomatillo-icon.png"
+            alt="Tomatillo"
+          />
+          <b>{((selectedMovie.average_rating * 10) / 20).toFixed(1)}</b>
+          <span className="custom-font"> Tomatillos</span>
+        </p>
+        <div className="synopsis-container">
+          <b>
+            <p>{selectedMovie.overview}</p>
+          </b>
+        </div>
+      </div>
     </div>
   );
 }
