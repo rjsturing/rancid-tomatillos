@@ -49,9 +49,11 @@ function MovieDetail() {
         />
       </div>
       <div className="right-side">
-        <h2>{`${selectedMovie.title} ${movieYear}`}</h2>
+        <h3>{`${selectedMovie.title} ${movieYear}`}</h3>
+          <h2>"{`${selectedMovie.tagline}`}"</h2>
         <p>Average Rating: {Math.round(selectedMovie.average_rating * 10)}%</p>
         <p>Release Date: {selectedMovie.release_date}</p>
+        <h1><i>Synopsis:</i>{selectedMovie.overview}</h1>
       </div>
     </div>
   );

@@ -29,9 +29,18 @@ function App() {
         .then((data) => setMovies(data.movies))
         .catch((error) => {
           console.error(error);
-          setError(error.message);
+          setError(`Oopsie! Something went wrong, please try again later.`);
         });
     }, []);
+
+    useEffect(() => {
+      if (selectedMovie) {
+        document.body.style.overflow = 'hidden'; // Disable scrolling
+      } else {
+        document.body.style.overflow = 'unset'; // Enable scrolling
+      }
+    }, [selectedMovie]);
+    
 
   return (
     <main className={`App ${selectedMovie ? "show-selected" : ""}`}>
@@ -43,25 +52,12 @@ function App() {
           <h1>Rancid Tomatillos</h1>
         </div>
       </header>
+      {error && (<div className="error-message">{error}</div>)}
+      <Routes>
+        <Route path="/" element={<Movies movies={movies} selectMovie={selectMovie} />} />
 
-      <div className="content-area" style={mainStyle}>
-        {error && <div className="error-message">{error}</div>}
-        <Routes>
-          <Route
-            path="/"
-            element={<Movies movies={movies} selectMovie={selectMovie} />}
-          />
-          <Route
-            path="/movies/:id"
-            element={
-              <MovieDetail
-                movie={selectedMovie}
-                clearMovieSelection={clearMovieSelection}
-              />
-            }
-          />
-        </Routes>
-      </div>
+        <Route path="/movies/:id" element={<MovieDetail movie={selectedMovie} clearMovieSelection={clearMovieSelection} />} />
+      </Routes>
     </main>
   );
 }

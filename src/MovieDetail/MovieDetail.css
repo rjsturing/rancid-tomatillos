@@ -6,7 +6,6 @@
   position: relative;
 }
 
-
 .movie-detail .left-side {
   flex: 1;
   padding-right: 20px;
@@ -17,6 +16,26 @@
   flex-direction: column;
   align-items: flex-start;
   flex: 2;
+}
+
+.movie-detail .right-side h3 {
+  margin-top: 0px;
+  margin-bottom: -15px;
+  font-size: 48px;
+}
+
+.movie-detail .right-side h2 {
+  font-size: 30px; 
+  font-style: italic;
+}
+
+.movie-detail .right-side h1 {
+  font-size: 20px; 
+}
+
+.movie-detail .right-side p {
+  font-size: 30px;
+  margin-bottom: 40px; 
 }
 
 .movie-detail .poster {
