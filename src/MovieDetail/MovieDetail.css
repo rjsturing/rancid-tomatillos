@@ -27,15 +27,33 @@
 .movie-detail .right-side h2 {
   font-size: 30px; 
   font-style: italic;
+  margin-bottom: 10px;
 }
 
 .movie-detail .right-side h1 {
   font-size: 26px; 
+  margin-bottom: 10px;
 }
 
 .movie-detail .right-side p {
   font-size: 24px;
-  margin-bottom: 15px; 
+  margin-bottom: 35px; 
+}
+
+.custom-font {
+  font-family: 'elMariachi', sans-serif; /* Replace with your font name */
+}
+
+.tomatillo-icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+.synopsis-container {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 20px;
 }
 
 .movie-detail .poster {
@@ -58,7 +76,7 @@
   border-radius: 8px; 
 }
 
-  .back-button {
+.back-button {
   padding: 10px 20px;
   margin-bottom: 20px;
   background-color: black;

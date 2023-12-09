@@ -63,14 +63,22 @@ function MovieDetail() {
       </div>
       <div className="right-side">
         <h3>{`${selectedMovie.title} ${movieYear}`}</h3>
-        <h2>"{`${selectedMovie.tagline}`}"</h2>
-        <h1>{selectedMovie.genres.join(', ')}</h1>
-        <p>Average Rating: {Math.round(selectedMovie.average_rating * 10)}%</p>
-        <p>Runtime: {selectedMovie.runtime} minutes</p>
-        <h1>
-          <i>Synopsis: </i>
-          {selectedMovie.overview}
-        </h1>
+        <h2>{`${selectedMovie.tagline}`}</h2>
+        <p>
+          {selectedMovie.genres.join(", ")} • {selectedMovie.runtime} mins
+        </p>
+        <p>
+          <img
+            className="tomatillo-icon"
+            src="/tomatillo-icon.png"
+            alt="Tomatillo"
+          />
+          <b>{((selectedMovie.average_rating * 10) / 20).toFixed(1)}</b>
+          <span className="custom-font"> Tomatillos</span>
+        </p>
+        <div className="synopsis-container">
+          <b><p>{selectedMovie.overview}</p></b>
+        </div>
       </div>
     </div>
   );

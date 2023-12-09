@@ -7,13 +7,21 @@ header {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to bottom, black, #534b7e);
-  padding: 25px;
+  padding-top: 10px;
 }
 
 .header-title {
   color: white;
-  margin-left: 20px;
+  margin-left: -10px;
   margin-top: 20px;
+}
+
+.header-title h1 {
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 35px;
+  font-size: 60px;
+  font-family: 'elMariachi', sans-serif;
 }
 
 body {

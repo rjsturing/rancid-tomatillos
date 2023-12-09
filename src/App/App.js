@@ -6,6 +6,8 @@ import Movies from "../Movies/Movies";
 import MovieDetail from "../MovieDetail/MovieDetail";
 import { Routes, Route } from "react-router-dom";
 import { getAllMovies } from "../apiCalls";
+import '../Fonts/Fonts.css';
+
 
 function App() {
   const [movies, setMovies] = useState([]);
