@@ -25,7 +25,10 @@ function App() {
 
     useEffect(() => {
       getAllMovies()
-        .then((data) => setMovies(data.movies))
+        .then((data) => {
+          setMovies(data.movies);
+          setError(null);
+        })
         .catch((error) => {
           console.error(error);
           setError(error.message);
