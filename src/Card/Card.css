@@ -1,16 +1,16 @@
 .card {
   box-sizing: border-box;
   border: none;
-  overflow: visible; /* Allow the poster to overlap other elements when enlarged */
+  overflow: visible;
   box-shadow: none;
   cursor: pointer;
   transition: transform 0.3s ease;
-  position: relative; /* Needed to control the z-index */
+  position: relative;
 }
 
 .movie-poster {
   width: 100%;
-  box-shadow: 10px 10px 5px rgba(8, 72, 17, 0.758);;
+  box-shadow: 5px 10px 20px rgba(0,0,0,.75);
   transition: transform 0.3s ease;
 }
 
