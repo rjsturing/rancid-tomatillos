@@ -10,7 +10,7 @@
 
 .movie-poster {
   width: 100%;
-  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 10px 5px rgba(8, 72, 17, 0.758);;
   transition: transform 0.3s ease;
 }
 

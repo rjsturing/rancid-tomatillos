@@ -16,6 +16,7 @@
   flex-direction: column;
   align-items: flex-start;
   flex: 2;
+  text-shadow: 2px 2px 4px rgba(0,0,0,1);
 }
 
 .movie-detail .right-side h3 {
@@ -37,11 +38,11 @@
 
 .movie-detail .right-side p {
   font-size: 24px;
-  margin-bottom: 35px; 
+  margin-bottom: 10px; 
 }
 
 .custom-font {
-  font-family: 'elMariachi', sans-serif; /* Replace with your font name */
+  font-family: 'elMariachi', sans-serif;
 }
 
 .tomatillo-icon {
@@ -51,7 +52,7 @@
 }
 
 .synopsis-container {
-  max-height: 200px;
+  max-height: 300px;
   overflow-y: auto;
   margin-bottom: 20px;
 }
@@ -60,6 +61,10 @@
   max-width: 70%;
   height: auto;
   border-radius: 8px;
+}
+
+.poster {
+  box-shadow: 5px 10px 20px rgba(0,0,0,.75);
 }
 
 .movie-detail .back-button {
@@ -77,8 +82,8 @@
 }
 
 .back-button {
-  padding: 10px 20px;
-  margin-bottom: 20px;
+  padding: 20px 30px;
+  font-size: 25px;
   background-color: black;
   color: white;
   border: none;
@@ -112,5 +117,5 @@
 }
 
 .back-button:hover {
-  background-color: #534b7e;
+  background-color: rgba(65, 158, 79, 0.427);
 }

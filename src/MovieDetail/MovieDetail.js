@@ -8,7 +8,6 @@ function MovieDetail() {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [error, setError] = useState(null);
 
-  // Fetch movie details based on the movie ID from the URL
   useEffect(() => {
     if (id) {
       getSelectedMovie(id)
@@ -52,7 +51,9 @@ function MovieDetail() {
   return (
     <div className="movie-detail show-selected" style={mainStyle}>
       <Link to={"/"}>
-        <button className="back-button">Back to Movies</button>
+        <button className="back-button">
+          <span className="custom-font">←ㅤBack</span>
+        </button>
       </Link>
       <div className="left-side">
         <img
@@ -77,7 +78,9 @@ function MovieDetail() {
           <span className="custom-font"> Tomatillos</span>
         </p>
         <div className="synopsis-container">
-          <b><p>{selectedMovie.overview}</p></b>
+          <b>
+            <p>{selectedMovie.overview}</p>
+          </b>
         </div>
       </div>
     </div>
