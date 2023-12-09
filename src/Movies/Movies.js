@@ -46,7 +46,14 @@ function Movies() {
 }
 
 Movies.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    average_rating: PropTypes.number,
+    backdrop_path: PropTypes.string,
+    id: PropTypes.number,
+    poster_path: PropTypes.string,
+    release_date: PropTypes.string,
+    title: PropTypes.string
+  }))
 }
 
 export default Movies;
