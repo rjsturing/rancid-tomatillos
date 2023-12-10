@@ -21,17 +21,6 @@ function MovieDetail() {
     }
   }, [id]);
 
-  // prevent detail page from scrolling overflow
-  useEffect(() => {
-    const originalStyle = window.getComputedStyle(document.body).overflow;
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = originalStyle;
-    };
-  }, []);
-  //
-
   const mainStyle = selectedMovie
     ? { backgroundImage: `url(${selectedMovie.backdrop_path})` }
     : {};
@@ -52,7 +41,7 @@ function MovieDetail() {
     <div className="movie-detail show-selected" style={mainStyle}>
       <Link to={"/"}>
         <button className="back-button">
-          <span className="custom-font">←ㅤBack</span>
+          <span className="custom-font">←</span>
         </button>
       </Link>
       <div className="left-side">
