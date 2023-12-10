@@ -26,14 +26,17 @@ function App() {
     ? { backgroundImage: `url(${selectedMovie.backdrop_path})` }
     : {};
 
-  useEffect(() => {
-    getAllMovies()
-      .then((data) => setMovies(data.movies))
-      .catch((error) => {
-        console.error(error);
-        setError(`Oopsie! Something went wrong, please try again later.`);
-      });
-  }, []);
+    useEffect(() => {
+      getAllMovies()
+        .then((data) => {
+          setMovies(data.movies);
+          setError(null);
+        })
+        .catch((error) => {
+          console.error(error);
+          setError(error.message);
+        });
+    }, []);
 
   return (
     <main className={`App ${selectedMovie ? "show-selected" : ""}`}>
