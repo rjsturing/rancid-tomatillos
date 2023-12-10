@@ -26,19 +26,19 @@
 }
 
 .movie-detail .right-side h2 {
-  font-size: 30px;
+  font-size: 30px; 
   font-style: italic;
   margin-bottom: 10px;
 }
 
 .movie-detail .right-side h1 {
-  font-size: 26px;
+  font-size: 26px; 
   margin-bottom: 10px;
 }
 
 .movie-detail .right-side p {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 10px; 
 }
 
 .custom-font {
@@ -55,6 +55,11 @@
   max-height: 300px;
   overflow-y: auto;
   margin-bottom: 20px;
+  text-align: left;
+}
+
+.synopsis-container p {
+  text-align: left;
 }
 
 .movie-detail .poster {
@@ -67,27 +72,28 @@
   box-shadow: 5px 10px 20px rgba(0,0,0,.75);
 }
 
-.movie-detail img {
-  max-width: 100%;
-  border-radius: 8px;
+.movie-detail .back-button {
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  z-index: 10;
+  margin-top: 60px;
+  margin-left: 50px;
 }
 
-.movie-detail .back-button {
-  position: absolute;
-  top: -130px;
-  left: 10px;
-  z-index: 10;
-  padding: 10px 20px;
-  font-size: 18px;
+.movie-detail img {
+  max-width: 100%;
+  border-radius: 8px; 
+}
+
+.back-button {
+  padding: 20px 30px;
+  font-size: 25px;
   background-color: black;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
-
-.back-button:hover {
-  background-color: rgba(65, 158, 79, 0.427);
 }
 
 .show-selected {
@@ -97,8 +103,8 @@
   position: relative;
   color: white;
 }
-
-.show-selected::before {
+  
+.show-selected::before { 
   content: '';
   position: absolute;
   top: 0;
@@ -109,101 +115,12 @@
   opacity: 0.5;
   z-index: 1;
 }
-
+  
 .show-selected > * {
   position: relative;
-  z-index: 2;
+  z-index: 2; 
 }
 
-@media screen and (max-width: 1535px) {
-  .movie-detail .right-side h3 {
-    font-size: 36px;
-  }
-
-  .movie-detail .right-side h2 {
-    font-size: 28px;
-  }
-
-  .movie-detail .right-side h1,
-  .movie-detail .right-side p {
-    font-size: 22px;
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .movie-detail {
-    flex-direction: column;
-  }
-
-  .movie-detail .left-side,
-  .movie-detail .right-side {
-    flex: none;
-    width: 100%;
-  }
-
-  .movie-detail .right-side h3 {
-    font-size: 32px;
-  }
-
-  .movie-detail .right-side h2 {
-    font-size: 24px;
-  }
-
-  .movie-detail .right-side h1,
-  .movie-detail .right-side p {
-    font-size: 20px;
-  }
-
-  .movie-detail .right-side h3,
-  .movie-detail .right-side h2,
-  .movie-detail .right-side p {
-    text-align: center;
-  }
-
-  .movie-detail .right-side {
-    text-align: center;
-    align-items: center;
-  }
-
-  .back-button {
-    font-size: 35px;
-    padding: 10px 20px;
-    top: -30px;
-    left: 10px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .movie-detail .right-side h3 {
-    font-size: 28px;
-  }
-
-  .movie-detail .right-side h2 {
-    font-size: 22px;
-  }
-
-  .movie-detail .right-side h1,
-  .movie-detail .right-side p {
-    font-size: 18px;
-  }
-
-  .back-button {
-    font-size: 20px;
-    padding: 15px 25px;
-    top: 50px;
-    left: 10px;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .movie-detail {
-    padding: 20px;
-  }
-
-  .back-button {
-    font-size: 20px;
-    padding: 15px 25px;
-    top: 20px;
-    left: 10px;
-  }
+.back-button:hover {
+  background-color: rgba(65, 158, 79, 0.427);
 }
