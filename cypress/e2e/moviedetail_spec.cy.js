@@ -42,7 +42,7 @@ describe("Movie Details", () => {
   });
 
   //it block for back button
-  //pick the first movie - click for first movie, get the button, confirm that it says back or arrow, confirm url goes back to main
+  //pick the first movie - click for first movie, get the button, confirm that it says back or arrow feature/, confirm url goes back to main
 
   it("should navigate to the correct detail page when the first movie card is clicked", () => {
     cy.get(".movies-container").children().first().click();
