@@ -2,7 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Card.css';
 
-function Card({ poster, title, onClick }) {
+function Card({ poster, title, rating, onClick }) {
+  const tomatilloIcon = Array.from({ length: rating }, (_, index) => (
+    <img
+      key={index}
+      className="tomatillo-icon"
+      src="/tomatillo-icon.png"
+      alt="Tomatillo"
+    />
+  ));
+
   return (
     <div className="card" onClick={onClick}>
       <img
@@ -10,6 +19,7 @@ function Card({ poster, title, onClick }) {
         src={poster}
         alt={`Movie Poster for ${title}`}
       />
+      <div className="tomatillo-count">{tomatilloIcon}</div>
     </div>
   );
 }

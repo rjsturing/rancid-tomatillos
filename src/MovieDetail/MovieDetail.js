@@ -48,6 +48,15 @@ function MovieDetail() {
     ? `(${new Date(selectedMovie.release_date).getFullYear()})`
     : "";
 
+  const tomatilloIcon = Array.from({ length: selectedMovie.average_rating }, (_, index) => (
+    <img
+      key={index}
+      className="tomatillo-icon"
+      src="/tomatillo-icon.png"
+      alt="Tomatillo"
+    />
+  ));
+
   return (
     <div className="movie-detail show-selected" style={mainStyle}>
       <Link to={"/"}>
@@ -69,13 +78,8 @@ function MovieDetail() {
           {selectedMovie.genres.join(", ")} • {selectedMovie.runtime} mins
         </p>
         <p>
-          <img
-            className="tomatillo-icon"
-            src="/tomatillo-icon.png"
-            alt="Tomatillo"
-          />
-          <b>{((selectedMovie.average_rating * 10) / 20).toFixed(1)}</b>
-          <span className="custom-font"> Tomatillos</span>
+          <b>{selectedMovie.average_rating}</b>
+          <span className="custom-font"> Tomatillos {tomatilloIcon}</span>
         </p>
         <div className="synopsis-container">
           <b>
