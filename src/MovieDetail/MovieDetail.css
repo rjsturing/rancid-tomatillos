@@ -1,19 +1,89 @@
 .movie-detail {
-  background: transparent;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  padding: 40px;
+  min-height: calc(100vh - 70px);
+  position: relative;
+}
+
+.movie-detail .left-side {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.movie-detail .right-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 2;
+  text-shadow: 2px 2px 4px rgba(0,0,0,1);
+}
+
+.movie-detail .right-side h3 {
+  margin-top: 0px;
+  margin-bottom: -15px;
+  font-size: 48px;
+}
+
+.movie-detail .right-side h2 {
+  font-size: 30px; 
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.movie-detail .right-side h1 {
+  font-size: 26px; 
+  margin-bottom: 10px;
+}
+
+.movie-detail .right-side p {
+  font-size: 24px;
+  margin-bottom: 10px; 
+}
+
+.custom-font {
+  font-family: 'elMariachi', sans-serif;
+}
+
+.tomatillo-icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+.synopsis-container {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.movie-detail .poster {
+  max-width: 70%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.poster {
+  box-shadow: 5px 10px 20px rgba(0,0,0,.75);
+}
+
+.movie-detail .back-button {
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  z-index: 10;
+  margin-top: 60px;
+  margin-left: 50px;
 }
 
 .movie-detail img {
   max-width: 100%;
-  height: 50em;
-  border-radius: 8px;
+  border-radius: 8px; 
 }
 
 .back-button {
-  padding: 10px 20px;
-  margin-bottom: 20px;
+  padding: 20px 30px;
+  font-size: 25px;
   background-color: black;
   color: white;
   border: none;
@@ -22,27 +92,30 @@
 }
 
 .show-selected {
+  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
 }
-
-.show-selected::before {
-  background-size: cover;
+  
+.show-selected::before { 
   content: '';
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(255, 255, 255, 1);
+  background: rgba(29, 92, 38, 0.815);
   opacity: 0.5;
   z-index: 1;
 }
-
-.show-selected>* {
+  
+.show-selected > * {
   position: relative;
-  z-index: 2;
+  z-index: 2; 
 }
 
 .back-button:hover {
-  background-color: lightslategray
+  background-color: rgba(65, 158, 79, 0.427);
 }

@@ -12,7 +12,10 @@ function Movies() {
 
   useEffect(() => {
     getAllMovies()
-      .then((data) => setMovies(data.movies))
+      .then((data) => {
+        setMovies(data.movies);
+        setError(null);
+      })
       .catch((error) => {
         console.error(error);
         setError(`Oopsie! Something went wrong, please try again later.`);
