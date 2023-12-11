@@ -40,11 +40,17 @@ This application was built as a pair project of Turing School of Software and De
 - Test React components & asynchronous JS
 - Practice refactoring
 - Create a multi-page UX using Router
+- Implement responsive design
 
 # Challenges & Wins
 ## 🚧 Challenges
 - Engaging in our initial React project was a challenging but fulfilling experience. We found that this library/framework facilitated faster development compared to using just vanilla JavaScript.
+- Having one team member on the East Coast and one one the West Coast presented some scheduling challenges, especially since so much of the project had to be accomplished after school hours. 
+- Learning multiple new tools (React, React Router, PropTypes, Cypress, Responsive Design) at about the same time _and_ implementing them all in the project was a challenge, but an excellent learning experience!
 
 ## 🌟 Wins
 - GitHub Project Board Expertise: Erica's profound knowledge not only simplified and maximized our organizational efforts but also enabled others to effectively utilize the board for improved project management.
+- Bobby did amazing work on our page styling, getting really fun bits to work, such as the wiggle of each poster on hover, and the light up marquee!
+- This was also our first foray into responsive design. Both Bobby and Erica had a lot of fun tweaking elements of the app to work better on different screen sizes.
+- Going in, Erica had previous experience with Cypress. This made it not only easier to get through writing the tests, but also pretty fun. She was also able to help some other folks in our cohort when they got stuck with their tests.
 - Efficient Cross-Coast Collaboration: Overcoming the East-West time zone difference, our team's effective communication and collaboration ensured smooth project progress and decision-making.
