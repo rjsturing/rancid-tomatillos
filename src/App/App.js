@@ -41,7 +41,7 @@ function App() {
     return (
       <main className={`App ${selectedMovie ? "show-selected" : ""}`}>
         <header>
-          <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
+          <Link reloadDocument to="/" style={{ display: 'flex', alignItems: 'center' }}>
             <div className="logo">
               <img src="/tomatillo-icon.png" alt="Tomatillo Logo" />
             </div>
