@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './Movies.css';
+import React from "react";
+import PropTypes from "prop-types";
+import "./Movies.css";
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
-import Card from '../Card/Card';
+import { Link } from "react-router-dom";
+import Card from "../Card/Card";
 import { getAllMovies } from "../apiCalls";
 
 function Movies() {
@@ -28,7 +28,7 @@ function Movies() {
 
   const movieCards = movies.map(movie => {
     return (
-      <Link className='movie-card-link' key={movie.id} to={`/movies/${movie.id}`}>
+      <Link className="movie-card-link" key={movie.id} to={`/movies/${movie.id}`}>
         <Card
           id={movie.id}
           key={movie.id}
@@ -42,7 +42,7 @@ function Movies() {
   });
 
   return (
-    <div className='movies-container'>
+    <div className="movies-container">
       {movieCards}
     </div>
   );

@@ -16,7 +16,7 @@
   flex-direction: column;
   align-items: flex-start;
   flex: 2;
-  text-shadow: 2px 2px 4px rgba(0,0,0,1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
 
 .movie-detail .right-side h3 {
@@ -26,19 +26,19 @@
 }
 
 .movie-detail .right-side h2 {
-  font-size: 30px; 
+  font-size: 30px;
   font-style: italic;
   margin-bottom: 10px;
 }
 
 .movie-detail .right-side h1 {
-  font-size: 26px; 
+  font-size: 26px;
   margin-bottom: 10px;
 }
 
 .movie-detail .right-side p {
   font-size: 24px;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .custom-font {
@@ -69,13 +69,13 @@
 }
 
 .poster {
-  box-shadow: 5px 10px 20px rgba(0,0,0,.75);
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, .75);
 }
 
 .movie-detail .back-button {
   position: fixed;
-  top: 0; 
-  left: 0; 
+  top: 0;
+  left: 0;
   z-index: 10;
   margin-top: 60px;
   margin-left: 50px;
@@ -83,7 +83,7 @@
 
 .movie-detail img {
   max-width: 100%;
-  border-radius: 8px; 
+  border-radius: 8px;
 }
 
 .back-button {
@@ -103,8 +103,8 @@
   position: relative;
   color: white;
 }
-  
-.show-selected::before { 
+
+.show-selected::before {
   content: '';
   position: absolute;
   top: 0;
@@ -115,10 +115,10 @@
   opacity: 0.5;
   z-index: 1;
 }
-  
-.show-selected > * {
+
+.show-selected>* {
   position: relative;
-  z-index: 2; 
+  z-index: 2;
 }
 
 .back-button:hover {
