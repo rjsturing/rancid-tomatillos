@@ -30,12 +30,16 @@ describe("Movie Details", () => {
     cy.visit("/");
   });
 
-  //it block for back button
-  //pick the first movie - click for first movie, get the button, confirm that it says back or arrow feature/, confirm url goes back to main
+  it("should return to the main page when the Rancid Tomatillos marquis is clicked", () => {
+    cy.get(".movies-container").children().first().click();
+    cy.location("pathname").should("eq", "/movies/694919");
+    cy.get("header").click();
+    cy.location("pathname").should("eq", "/");
+  });
 
   it("should navigate to the correct detail page when the first movie card is clicked, and display details about the chosen movie", () => {
     cy.get(".movies-container").children().first().click();
-    cy.url().should("include", "/movies/694919");
+    cy.location("pathname").should("eq", "/movies/694919");
     cy.get("img").should("have.attr", "alt", "Tomatillo Logo");
     cy.get("h1").contains("Rancid Tomatillos");
     cy.get(".poster").should("have.attr", "alt", "Money Plane poster");
@@ -49,7 +53,7 @@ describe("Movie Details", () => {
 
   it("should navigate to the correct detail page when the last movie card is clicked, and display details about the chosen movie", () => {
     cy.get(".movies-container").children().last().click();
-    cy.url().should("include", "/movies/585244");
+    cy.location("pathname").should("eq", "/movies/585244");
     cy.get("img").should("have.attr", "alt", "Tomatillo Logo");
     cy.get("h1").contains("Rancid Tomatillos");
     cy.get(".poster").should("have.attr", "alt", "I Still Believe poster");
@@ -60,11 +64,4 @@ describe("Movie Details", () => {
     cy.get(".right-side").find("b").contains("3.3");
     cy.get(".synopsis-container").find("p").contains("The true-life story of Christian music star Jeremy Camp and his journey of love and loss that looks to prove there is always hope.");
   });
-
-  // it("should navigate to the correct detail page when the last movie card is clicked", () => {
-  //   cy.get(".movies-container").children().last().click();
-  //   cy.url().should("include", `/movies/${lastMovieId}`);
-  // });
-
 });
-
