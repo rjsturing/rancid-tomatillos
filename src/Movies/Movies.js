@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import './Movies.css';
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
@@ -10,7 +12,10 @@ function Movies() {
 
   useEffect(() => {
     getAllMovies()
-      .then((data) => setMovies(data.movies))
+      .then((data) => {
+        setMovies(data.movies);
+        setError(null);
+      })
       .catch((error) => {
         console.error(error);
         setError(`Oopsie! Something went wrong, please try again later.`);
@@ -41,6 +46,17 @@ function Movies() {
       {movieCards}
     </div>
   );
+}
+
+Movies.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    average_rating: PropTypes.number.isRequired,
+    backdrop_path: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+  }))
 }
 
 export default Movies;
