@@ -20,27 +20,6 @@
   animation: wiggleEnlarge 0.5s ease-in-out forwards;
 }
 
-.tomatillo-count {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  max-width: 100%;
-  padding-left: 3%;
-}
-
-.card:hover .tomatillo-count {
-  display: flex;
-  width: 100%;
-}
-
-.card:hover .tomatillo-count img {
-  width: 8%;
-  height: auto;
-  transition: width 0.3s ease, height 0.3s ease;
-}
-
 @keyframes wiggleEnlarge {
 
   0%,
