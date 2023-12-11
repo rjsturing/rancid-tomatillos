@@ -39,11 +39,11 @@ function MovieDetail() {
 
   return (
     <div className="movie-detail show-selected" style={mainStyle}>
-      <Link to={"/"}>
+      {/* <Link to={"/"}>
         <button className="back-button">
           <span className="custom-font">←</span>
         </button>
-      </Link>
+      </Link> */}
       <div className="left-side">
         <img
           className="poster"

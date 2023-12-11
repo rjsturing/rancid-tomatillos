@@ -10,6 +10,12 @@ header {
   padding-top: 10px;
 }
 
+header a,
+header a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
 .header-title {
   color: white;
   margin-left: -10px;
@@ -23,6 +29,17 @@ header {
   margin-bottom: 30px;
   font-size: 30px;
   font-family: 'elMariachi', sans-serif;
+  transition: text-shadow 0.1s ease-in-out;
+}
+
+.header-title h1:hover {
+  color: #D0A9F5;
+  text-shadow:
+    0 0 5px #278140,
+    0 0 20px #A23BEF,
+    0 0 35px #A23BEF,
+    0 0 40px #A23BEF, 
+    0 0 50px #A23BEF;
 }
 
 body {
