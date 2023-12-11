@@ -25,7 +25,7 @@ Ready for movie magic but can't choose what to watch? Rancid Tomatillos is your 
 This application was built as a pair project of Turing School of Software and Design's Front End Web Development program, Mod 3. We were given 12 days, from kick-off, to complete and submit the project for evaluation from scratch using the [provided comp](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html).
 
 # 🖼️ Preview
-<!-- Add preview video here -->
+![Rotten Tomatillos](https://github.com/rjsturing/rancid-tomatillos/assets/135551833/13d929d4-afb4-43b1-9f41-1a6b96d4ed91)
 
 # 🔧 Installation Instructions
 1. Clone this client repository to your local machine
