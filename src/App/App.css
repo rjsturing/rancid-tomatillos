@@ -20,7 +20,7 @@ header a:visited {
   color: white;
   margin-left: -10px;
   margin-top: 25px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
 }
 
 .header-title h1 {
@@ -38,7 +38,7 @@ header a:visited {
     0 0 5px #278140,
     0 0 20px #A23BEF,
     0 0 35px #A23BEF,
-    0 0 40px #A23BEF, 
+    0 0 40px #A23BEF,
     0 0 50px #A23BEF;
 }
 

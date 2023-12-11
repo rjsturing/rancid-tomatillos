@@ -11,7 +11,7 @@ describe("Movie Details", () => {
 
     cy.intercept(
       "GET",
-      `https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919`,
+      "https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919",
       {
         statusCode: 200,
         fixture: "/mock-movie-0.json",
@@ -20,7 +20,7 @@ describe("Movie Details", () => {
 
     cy.intercept(
       "GET",
-      `https://rancid-tomatillos.herokuapp.com/api/v2/movies/585244`,
+      "https://rancid-tomatillos.herokuapp.com/api/v2/movies/585244",
       {
         statusCode: 200,
         fixture: "/mock-movie-1.json",

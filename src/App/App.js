@@ -6,8 +6,8 @@ import Movies from "../Movies/Movies";
 import MovieDetail from "../MovieDetail/MovieDetail";
 import { Routes, Route } from "react-router-dom";
 import { getAllMovies } from "../apiCalls";
-import '../Fonts/Fonts.css';
-import { Link } from 'react-router-dom';
+import "../Fonts/Fonts.css";
+import { Link } from "react-router-dom";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -26,30 +26,30 @@ function App() {
     ? { backgroundImage: `url(${selectedMovie.backdrop_path})` }
     : {};
 
-    useEffect(() => {
-      getAllMovies()
-        .then((data) => {
-          setMovies(data.movies);
-          setError(null);
-        })
-        .catch((error) => {
-          console.error(error);
-          setError(error.message);
-        });
-    }, []);
+  useEffect(() => {
+    getAllMovies()
+      .then((data) => {
+        setMovies(data.movies);
+        setError(null);
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
+  }, []);
 
-    return (
-      <main className={`App ${selectedMovie ? "show-selected" : ""}`}>
-        <header>
-          <Link reloadDocument to="/" style={{ display: 'flex', alignItems: 'center' }}>
-            <div className="logo">
-              <img src="/tomatillo-icon.png" alt="Tomatillo Logo" />
-            </div>
-            <div className="header-title">
-              <h1>Rancid Tomatillos</h1>
-            </div>
-          </Link>
-        </header>
+  return (
+    <main className={`App ${selectedMovie ? "show-selected" : ""}`}>
+      <header>
+        <Link reloadDocument to="/" style={{ display: "flex", alignItems: "center" }}>
+          <div className="logo">
+            <img src="/tomatillo-icon.png" alt="Tomatillo Logo" />
+          </div>
+          <div className="header-title">
+            <h1>Rancid Tomatillos</h1>
+          </div>
+        </Link>
+      </header>
       {error && <div className="error-message">{error}</div>}
       <Routes>
         <Route
