@@ -10,7 +10,7 @@
 
 .movie-poster {
   width: 100%;
-  box-shadow: 5px 10px 20px rgba(0,0,0,.75);
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, .75);
   transition: transform 0.3s ease;
 }
 
@@ -42,8 +42,21 @@
 }
 
 @keyframes wiggleEnlarge {
-  0%, 100% { transform: scale(1.03) rotate(0deg); }
-  25% { transform: scale(1.03) rotate(-2deg); }
-  50% { transform: scale(1.03) rotate(2deg); }
-  75% { transform: scale(1.03) rotate(-2deg); }
+
+  0%,
+  100% {
+    transform: scale(1.03) rotate(0deg);
+  }
+
+  25% {
+    transform: scale(1.03) rotate(-2deg);
+  }
+
+  50% {
+    transform: scale(1.03) rotate(2deg);
+  }
+
+  75% {
+    transform: scale(1.03) rotate(-2deg);
+  }
 }

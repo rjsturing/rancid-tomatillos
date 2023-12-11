@@ -10,19 +10,36 @@ header {
   padding-top: 10px;
 }
 
+header a,
+header a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
 .header-title {
   color: white;
   margin-left: -10px;
-  margin-top: 20px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,2);
+  margin-top: 25px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
 }
 
 .header-title h1 {
   color: white;
-  margin-top: 20px;
-  margin-bottom: 35px;
-  font-size: 75px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+  font-size: 30px;
   font-family: 'elMariachi', sans-serif;
+  transition: text-shadow 0.1s ease-in-out;
+}
+
+.header-title h1:hover {
+  color: #D0A9F5;
+  text-shadow:
+    0 0 5px #278140,
+    0 0 20px #A23BEF,
+    0 0 35px #A23BEF,
+    0 0 40px #A23BEF,
+    0 0 50px #A23BEF;
 }
 
 body {
@@ -34,14 +51,12 @@ body {
 }
 
 .logo img {
-  max-width: 75px;
+  max-width: 30px;
   margin-right: 10px;
-  margin-left: 35px;
-  margin-top: 5px;
+  margin-top: -5px;
 }
 
 h1 {
-  margin: 50;
   color: white;
 }
 
@@ -51,42 +66,52 @@ h1 {
   font-size: 2em;
 }
 
+@media screen and (min-width: 1536px) {
+  .logo img {
+    max-width: 84px;
+  }
 
-
-
-
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .header-title h1 {
+    font-size: 84px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (min-width: 1280px) and (max-width: 1535px) {
+  .logo img {
+    max-width: 72px;
   }
 
-  to {
-    transform: rotate(360deg);
+  .header-title h1 {
+    font-size: 72px;
   }
-} */
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .logo img {
+    max-width: 60px;
+  }
+
+  .header-title h1 {
+    font-size: 60px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .logo img {
+    max-width: 48px;
+  }
+
+  .header-title h1 {
+    font-size: 48px;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .logo img {
+    max-width: 36px;
+  }
+
+  .header-title h1 {
+    font-size: 36px;
+  }
+}

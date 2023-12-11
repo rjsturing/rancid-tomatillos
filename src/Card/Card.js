@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './Card.css';
+import React from "react";
+import PropTypes from "prop-types";
+import "./Card.css";
 
 function Card({ poster, title, rating, onClick }) {
   const tomatilloIcon = Array.from({ length: rating }, (_, index) => (
